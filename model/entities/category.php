@@ -3,7 +3,7 @@
 
     use App\Entity;
 
-    final class Topic extends Entity{
+    final class Category extends Entity{
 
         private $id;
         private $categoryname;

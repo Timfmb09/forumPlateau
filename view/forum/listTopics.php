@@ -11,6 +11,8 @@ foreach($topics as $topic ){
 
     ?>
     <p><?=$topic->getTitle()?></p>
+    <p><?=$topic->getCreationdate()?></p>
+    <p><?=$topic->getId()?></p>
     <?php
 }
 

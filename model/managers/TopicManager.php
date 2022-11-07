@@ -16,7 +16,7 @@
         }
 
         public function findPostsByTopic($id) {
-            $sql = "SELECT *
+            $sql = "SELECT title, creationdate, user_id
                     FROM ".$this->tableName." p
                     WHERE p.user_id = :id";
 
@@ -27,6 +27,7 @@
                 $this->className
             );
         }
+
 
 
     }
