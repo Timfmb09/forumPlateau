@@ -10,6 +10,7 @@
         private $user;
         private $creationdate;
         private $closed;
+        private $category;
 
         public function __construct($data){         
             $this->hydrate($data);        
@@ -101,6 +102,26 @@
         public function setClosed($closed)
         {
                 $this->closed = $closed;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of category
+         */ 
+        public function getCategory()
+        {
+                return $this->category;
+        }
+
+        /**
+         * Set the value of category
+         *
+         * @return  self
+         */ 
+        public function setCategory($category)
+        {
+                $this->category = $category;
 
                 return $this;
         }
