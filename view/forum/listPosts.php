@@ -10,6 +10,8 @@ $posts = $result["data"]['posts'];
 foreach($posts as $post ){
 
     ?>
-    <p><?=$post->getMessage()?></p>
+    <p><?php echo $post->getMessage()?>
+        <?php echo $post->getUser(). "(".$post->getDatepost().") wrote : ".$post->$getMessage()?>
+    </p>
     <?php
 }

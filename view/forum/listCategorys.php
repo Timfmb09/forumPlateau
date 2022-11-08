@@ -10,7 +10,11 @@ $categorys = $result["data"]['categorys'];
 foreach($categorys as $category ){
 
     ?>
-    <p><?=$category->getId()?></p>
-    <p><?=$category->getCategoryname()?></p>
+    <p><?php echo $category->getId()?>
+        <?php echo $category->getCategoryname()?>
+        <a href="index.php?ctrl=forum&action=findTopicsByCategory&id=<?=$category->getId() ?>"> Nom de la catégorie </a>
+    </p>
+    
     <?php
 }
+

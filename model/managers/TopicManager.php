@@ -15,10 +15,10 @@
             parent::connect();
         }
 
-        public function findPostsByTopic($id) {
+        public function findTopicsByCategory($id) {
             $sql = "SELECT title, creationdate, user
                     FROM ".$this->tableName." t
-                    WHERE t.user_id = :id";
+                    WHERE t.category_id = :id";
 
             // var_dump($sql); die;
 

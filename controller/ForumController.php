@@ -23,30 +23,48 @@
                     "categorys" => $categoryManager->findAll(["categoryname"])
                 ]
             ];
+        }   
+            
+              
+        public function listCategorys(){
 
-         
-           $topicManager = new TopicManager();
+            $categoryManager = new CategoryManager();
 
             return [
-                "view" => VIEW_DIR."forum/listTopics.php",
+                "view" => VIEW_DIR."forum/listCategorys.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
-                    "topics" => $topicManager->findAll(["creationdate", "ASC"])
+                    "categorys" => $categoryManager->findAll(["categoryname" , "ASC"])
                 ]
             ];
+        }
         
+        // public function listTopics($id){
 
-            $postManager = new PostManager();
- 
-             return [
-                 "view" => VIEW_DIR."forum/listPosts.php",
-                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
-                 "data" => [
-                     "posts" => $postManager->findAll(["message"])
-                 ]
-             ];
          
-         }
+        //    $topicManager = new TopicManager();
+
+        //     return [
+        //         "view" => VIEW_DIR."forum/listTopics.php",
+        //         // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+        //         "data" => [
+        //             "topics" => $topicManager->findAll(["creationdate", "ASC"])
+        //         ]
+        //     ];
+        
+        // public function listPosts($id){
+
+        //     $postManager = new PostManager();
+ 
+        //      return [
+        //          "view" => VIEW_DIR."forum/listPosts.php",
+        //          // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+        //          "data" => [
+        //              "posts" => $postManager->findAll(["message"])
+        //          ]
+        //      ];
+         
+        //  }
 
         
 
