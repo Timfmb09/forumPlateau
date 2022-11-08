@@ -14,10 +14,11 @@
             parent::connect();
         }
 
-        public function findPostsByTopic($id) {
+        public function findPostsByPost($id) {
             $sql = "SELECT *
                     FROM ".$this->tableName." p
-                    WHERE p.topic_id = :id";
+                    WHERE p.user_id = :id";
+
 
             // var_dump($sql); die;
 

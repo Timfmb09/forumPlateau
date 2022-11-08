@@ -17,8 +17,8 @@
 
         public function findPostsByCategory($id) {
             $sql = "SELECT *
-                    FROM ".$this->tableName." p
-                    WHERE p.user_id = :id";
+                    FROM ".$this->tableName." c
+                    WHERE c.user_id = :id";
 
             // var_dump($sql); die;
 

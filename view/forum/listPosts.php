@@ -1,15 +1,15 @@
 <?php
 // montre comment récupérer les données envoyées par le controller (ligne 3)
-$users = $result["data"]['users'];
+$posts = $result["data"]['posts'];
     
 ?>
 
-<h1>liste users</h1>
+<h1>liste posts</h1>
 
 <?php
-foreach($users as $user ){
+foreach($posts as $post ){
 
     ?>
-    <p><?=$user->getNickname()?></p>
+    <p><?=$post->getMessage()?></p>
     <?php
 }
