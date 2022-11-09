@@ -11,8 +11,7 @@ foreach($categorys as $category ){
 
     ?>
     <p><?php echo $category->getId()?>
-        <?php echo $category->getCategoryname()?>
-        <a href="index.php?ctrl=forum&action=findTopicsByCategory&id=<?=$category->getId() ?>"> Nom de la catégorie </a>
+        <a href="index.php?ctrl=forum&action=findTopicsByCategory&id=<?=$category->getId() ?>"> <?= $category->getCategoryName()?> </a>
     </p>
     
     <?php

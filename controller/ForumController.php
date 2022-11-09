@@ -12,18 +12,7 @@
     
     class ForumController extends AbstractController implements ControllerInterface{
 
-        public function index(){
-
-            $categoryManager = new CategoryManager();
-
-            return [
-                "view" => VIEW_DIR."forum/listCategorys.php",
-                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
-                "data" => [
-                    "categorys" => $categoryManager->findAll(["categoryname"])
-                ]
-            ];
-        }   
+        public function index(){}   
             
               
         public function listCategorys(){
@@ -34,21 +23,20 @@
                 "view" => VIEW_DIR."forum/listCategorys.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
-                    "categorys" => $categoryManager->findAll(["categoryname" , "ASC"])
+                    "categorys" => $categoryManager->findAll(["categoryName" , "ASC"])
                 ]
             ];
         }
         
-        // public function listTopics($id){
-
          
         //    $topicManager = new TopicManager();
+        //    $topics = $topicManagaer->findAllTopics(['creationDate', 'DESC']);
 
         //     return [
         //         "view" => VIEW_DIR."forum/listTopics.php",
         //         // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
         //         "data" => [
-        //             "topics" => $topicManager->findAll(["creationdate", "ASC"])
+        //             "topics" => $topicManager->findAll(["creationDate", "ASC"])
         //         ]
         //     ];
         
@@ -66,6 +54,33 @@
          
         //  }
 
+        public function findTopicsByCategory($id) {
+            $topicManager = new TopicManager();
+            $topics = $topicManager->findTopicsByCategory($id);
+
+            return [
+                "view" => VIEW_DIR."forum/listTopics.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "topics" => $topics
+                ]
+            ];
         
+        }
+
+        public function findPostsByTopic($id) {
+            $postManager = new PostManager();
+            $posts = $postManager->findPostsByTopic($id);
+
+            return [
+                "view" => VIEW_DIR."forum/listPosts.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "posts" => $posts
+                ]
+            ];
+
+        }
+
 
     }

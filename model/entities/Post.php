@@ -8,7 +8,7 @@
         private $id;
         private $message;
         private $user;
-        private $datepost;
+        private $datePost;
         private $topic;
 
         public function __construct($data){         
@@ -75,13 +75,13 @@
                 return $this;
         }
 
-        public function getDatepost(){
-            $formattedDate = $this->datepost->format("d/m/Y, H:i:s");
+        public function getDatePost(){
+            $formattedDate = $this->datePost->format("d/m/Y, H:i:s");
             return $formattedDate;
         }
 
-        public function setDatepost($date){
-            $this->datepost = new \DateTime($date);
+        public function setDatePost($date){
+            $this->datePost = new \DateTime($date);
             return $this;
         }
 

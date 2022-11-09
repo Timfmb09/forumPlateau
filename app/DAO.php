@@ -15,7 +15,7 @@
         private static $host   = 'mysql:host=127.0.0.1;port=3306';
         private static $dbname = 'forumplateau';
         private static $dbuser = 'root';
-        private static $dbpass = '';
+        private static $dbpass = 'root';
 
         private static $bdd;
 

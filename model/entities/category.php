@@ -6,7 +6,7 @@
     final class Category extends Entity{
 
         private $id;
-        private $categoryname;
+        private $categoryName;
     
         public function __construct($data){         
             $this->hydrate($data);        
@@ -33,21 +33,21 @@
         }
 
         /**
-         * Get the value of categoryname
+         * Get the value of categoryName
          */ 
-        public function getCategoryname()
+        public function getcategoryName()
         {
-                return $this->categoryname;
+                return $this->categoryName;
         }
 
         /**
-         * Set the value of categoryname
+         * Set the value of categoryName
          *
          * @return  self
          */ 
-        public function setCategoryname($categoryname)
+        public function setcategoryName($categoryName)
         {
-                $this->categoryname = $categoryname;
+                $this->categoryName = $categoryName;
 
                 return $this;
         }

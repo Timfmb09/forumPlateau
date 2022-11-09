@@ -3,25 +3,20 @@
     
     use App\Manager;
     use App\DAO;
-    use Model\Managers\PostManager;
 
     class PostManager extends Manager{
 
         protected $className = "Model\Entities\Post";
         protected $tableName = "post";
 
-        public function _construct(){
+        public function __construct(){
             parent::connect();
         }
 
-        public function findPostsByPost($id) {
-            $sql = "SELECT *
-                    FROM ".$this->tableName." p
-                    WHERE p.user_id = :id";
+        public function findPostsByTopic($id) {
 
-
-            // var_dump($sql); die;
-
+            $sql = "SELECT * FROM ".$this->tableName." p WHERE p.topic_id = :id ORDER BY datePost";
+        
             return $this->getMultipleResults(
                 DAO::select($sql, ['id' => $id]),
                 $this->className
