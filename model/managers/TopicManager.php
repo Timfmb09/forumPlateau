@@ -14,7 +14,7 @@
         }
 
         public function findTopicsByCategory($id) {
-            $sql = "SELECT id_topic, title, creationDate
+            $sql = "SELECT *
                     FROM ".$this->tableName." t
                     WHERE t.category_id = :id
                     ORDER BY creationDate DESC";
@@ -26,7 +26,6 @@
                 $this->className
             );
         }
-
 
 
     }

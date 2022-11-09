@@ -6,13 +6,25 @@ $posts = $result["data"]['posts'];
 
 <h1>liste posts</h1>
 
+<table>
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Date</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+
 <?php
-foreach($posts as $post ){
-
-    ?>
-    <p><?php echo $post->getMessage()?></p>
+foreach($posts as $post){ ?>
+<tr>
+    <td><?=$post->getMessage()?></td>
+    <td><?=$post->getDatePost()?></td>
+    <td><?=$post->getUser()?></td>
+</tr>
     <?php
-}
+} ?>
 
-
-// <?php echo $post->getUser(). "(".$post->getDatePost().") wrote : ".$post->$getMessage()?>
+</tbody>
+</table>

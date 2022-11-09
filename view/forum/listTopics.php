@@ -22,7 +22,7 @@ $topics = $result["data"]['topics'];
     <tr>
         <td><a href="index.php?ctrl=forum&action=findPostsByTopic&id=<?= $topic->getId() ?>"><?=$topic->getTitle()?></a></td>
         <td><?=$topic->getCreationDate()?></td>
-        <td><?=$topic->getUser()?></td>
+        <td><?=$topic->getUser() ?></td>
     </tr>
         <?php
     } ?>
