@@ -24,4 +24,9 @@
                 $this->className
             );
         }
+        //$data = ['username' => 'Squalli', 'password' => 'dfsyfshfbzeifbqefbq', 'email' => 'sql@gmail.com'];
+
+
+
+
     }

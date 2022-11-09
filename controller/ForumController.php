@@ -76,11 +76,28 @@
                 "view" => VIEW_DIR."forum/listPosts.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
-                    "posts" => $posts
+                    "posts" => $posts,
+                    "idtopic" => $id
                 ]
             ];
 
         }
+        
+        public function addPost($idtopic){
+
+            $postManager = new PostManager();
+            $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $userid = 10;
+
+            if($message) {
+                
+                $postManager->add(["message"=>$message, "user_id" => $userid, "topic_id" => $idtopic]);
+                header("Location: index.php?ctrl=forum&action=findPostsByTopic&id=$idtopic");
+            }
+        }
+        
+
+
 
 
     }
