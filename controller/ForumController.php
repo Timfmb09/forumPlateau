@@ -96,7 +96,18 @@
             }
         }
         
+        public function addTopic($idcategory){
 
+            $topicManager = new TopicManager();
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $userid = 11;
+
+            if($title) {
+                
+                $topicManager->add(["title"=>$title, "user_id" => $userid, "category_id" => $idcategory]);
+                header("Location: index.php?ctrl=forum&action=findTopicsByCategory&id=$idcategory");
+            }
+        }
 
 
 

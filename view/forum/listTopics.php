@@ -29,7 +29,10 @@ $topics = $result["data"]['topics'];
 
 </tbody>
 </table>
-
+<form action="index.php?ctrl=forum&action=addTopic&id=<?=$idcategory ?>" method="post">
+   <input type="text" name ="title" />
+   <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>
+</form>
     
 
 
