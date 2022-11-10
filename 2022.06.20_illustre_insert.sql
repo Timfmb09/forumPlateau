@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Hôte :                        127.0.0.1
--- Version du serveur:           5.7.24 - MySQL Community Server (GPL)
+-- Hôte:                         127.0.0.1
+-- Version du serveur:           5.7.33 - MySQL Community Server (GPL)
 -- SE du serveur:                Win64
--- HeidiSQL Version:             10.2.0.5599
+-- HeidiSQL Version:             11.2.0.6213
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,6 +10,7 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
 -- Listage de la structure de la base pour forumplateau
@@ -43,14 +44,16 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `topic_id` (`topic_id`),
   CONSTRAINT `FK_post_topic` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
   CONSTRAINT `FK_post_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Listage des données de la table forumplateau.post : ~3 rows (environ)
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
 INSERT INTO `post` (`id_post`, `message`, `datePost`, `user_id`, `topic_id`) VALUES
 	(1, 'MessageKo', '2022-11-04 00:00:00', 10, 1),
-	(2, 'MessageMo', '2023-11-04 00:00:00', 11, 1),
-	(3, 'MessageGo', '2024-11-04 00:00:00', 12, 3);
+	(2, 'MessageMo', '2023-11-04 00:00:00', 11, 2),
+	(3, 'MessageGo', '2024-11-04 00:00:00', 12, 3),
+	(9, 'MessageLo', '2022-11-10 09:47:58', 10, 1),
+	(10, 'MessageTest', '2022-11-10 09:48:20', 10, 1);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 
 -- Listage de la structure de la table forumplateau. topic
@@ -95,5 +98,6 @@ INSERT INTO `user` (`id_user`, `nickname`, `email`, `password`, `role`) VALUES
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
