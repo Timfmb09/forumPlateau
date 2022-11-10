@@ -1,6 +1,7 @@
 <?php
 // montre comment récupérer les données envoyées par le controller (ligne 3)
 $topics = $result["data"]['topics'];
+$idcategory = $result["data"]['id_category'];
 // var_dump($topics);
     
 ?>

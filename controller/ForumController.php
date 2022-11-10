@@ -62,7 +62,8 @@
                 "view" => VIEW_DIR."forum/listTopics.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
-                    "topics" => $topics
+                    "topics" => $topics,
+                    "id_category" =>$id
                 ]
             ];
         
@@ -100,6 +101,7 @@
 
             $topicManager = new TopicManager();
             $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $userid = 11;
 
             if($title) {
