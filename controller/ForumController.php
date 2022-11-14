@@ -8,13 +8,25 @@
     use Model\Managers\CategoryManager;
     use Model\Managers\TopicManager;
     use Model\Managers\PostManager;
+    use Model\Managers\UserManager;
 
     
     class ForumController extends AbstractController implements ControllerInterface{
 
-        public function index(){}   
+        public function index(){
+
+            $topicManager = new TopicManager();
+               
+                return [
+                    "view" => VIEW_DIR."forum/listTopics.php",
+                    // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                    "data" => [
+                        "topics" => $topicManager->findAll(["creationDate", "ASC"])
+                    ]
+                ];
+        }   
             
-              
+        // Affiche la liste des catégories      
         public function listCategorys(){
 
             $categoryManager = new CategoryManager();
@@ -27,33 +39,9 @@
                 ]
             ];
         }
-        
-         
-        //    $topicManager = new TopicManager();
-        //    $topics = $topicManagaer->findAllTopics(['creationDate', 'DESC']);
+                 
 
-        //     return [
-        //         "view" => VIEW_DIR."forum/listTopics.php",
-        //         // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
-        //         "data" => [
-        //             "topics" => $topicManager->findAll(["creationDate", "ASC"])
-        //         ]
-        //     ];
-        
-        // public function listPosts($id){
-
-        //     $postManager = new PostManager();
- 
-        //      return [
-        //          "view" => VIEW_DIR."forum/listPosts.php",
-        //          // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
-        //          "data" => [
-        //              "posts" => $postManager->findAll(["message"])
-        //          ]
-        //      ];
-         
-        //  }
-
+        // Affiche la liste des topics/sujets par catégorie  
         public function findTopicsByCategory($id) {
             $topicManager = new TopicManager();
             $topics = $topicManager->findTopicsByCategory($id);
@@ -69,6 +57,7 @@
         
         }
 
+        // Affiche la liste des posts/message par topic/sujet  
         public function findPostsByTopic($id) {
             $postManager = new PostManager();
             $posts = $postManager->findPostsByTopic($id);
@@ -83,7 +72,22 @@
             ];
 
         }
+        // //Ajout d'une categorie
+        // public function addCategory($idcategory){
+
+        //     $categoryManager = new CategoryManager();
+        //     $categoryName = filter_input(INPUT_POST, "categoryName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         
+        //     if($categoryName) {
+                
+        //         $categoryManager->add(["categoryName"=>$categoryName, "category_id=>$idcategory"]);
+        //         header("Location: index.php?ctrl=forum&action=ListCategorys&id=$idcategory");
+        //     }
+        // }
+
+
+
+        //Ajout d'un post/message
         public function addPost($idtopic){
 
             $postManager = new PostManager();
@@ -97,6 +101,7 @@
             }
         }
         
+        //Ajout d'un topic/sujet
         public function addTopic($idcategory){
 
             $topicManager = new TopicManager();
