@@ -17,8 +17,10 @@ $idtopic = $result["data"]['idtopic'];
     </thead>
     <tbody>
 
-<?php
-foreach($posts as $post){ ?>
+    <?php
+foreach($posts as $post ){
+
+    ?>
 <tr>
     <td><?=$post->getMessage()?></td>
     <td><?=$post->getDatePost()?></td>
