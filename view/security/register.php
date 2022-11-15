@@ -9,10 +9,15 @@
         echo implode('<br>', $errors);
       }
       ?>
-      <form method="post" class="pure-form pure-form-aligned">
+      <form method="post" class="pure-form pure-form-aligned" action='index.php?ctrl=security&action=addUser'>
          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Pseudonyme</span>
+            <span class="input-group-addon" id="basic-addon1">Nickname</span>
             <input type="text" class="form-control" name="nickname" placeholder="Votre pseudonyme" aria-describedby="basic-addon1">
+         </div>
+         <br>
+         <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" name="email" placeholder="Votre email" aria-describedby="basic-addon1">
          </div>
          <br>
          <div class="input-group">

@@ -1,8 +1,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-<h1 class="text-center">Login page administration</h1>
-<h2 class="text-center alert alert-danger"><a href="">Si vous n'êtes pas membre de l'administration, merci de retourner sur le site</a></h2>
+<h1 class="text-center">Connexion</h1>
+<h2 class="text-center alert alert-danger"><a href="">Retour au site</a></h2>
 </head>
 <body>
 <form class="form-horizontal" method="post" action="index.php?ctrl=security&action=addUser">
