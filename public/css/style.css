@@ -12,20 +12,32 @@ body {
 }
 
 a {
-    
     text-decoration: none;
-    color: rgb(128, 0, 100);
+    color: rgb(0, 19, 128);
+    align-items: center;
+}
+
+h1{
+    font-size:large;
+    color: #000;
+}
+
+.nav{
+    
+
+
 }
 
 #wrapper {
     
     width: 100%;
-    background-image: linear-gradient(rgb(22, 90, 158), rgb(240, 20, 45));
+    background-image: linear-gradient(rgb(22, 90, 158), rgb(174, 245, 59));
     height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-left: 10%;
 }
 
 #box {
@@ -66,8 +78,8 @@ a {
 
 #formCnx input[type="submit"]:hover {
 
-    background-color:burlywood;
-    color: white;
+    background-color:rgb(197, 122, 23);
+    color: rgb(212, 18, 18);
 }
 
 #box > p {
@@ -92,31 +104,12 @@ a {
     color: red;
 }
 
-.bordureRouge {
-
-    border: 2px solid red;
-    width: 100%;
-    padding: 7px 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-.bordureVert {
-
-    border: 2px solid green;
-    width: 100%;
-    padding: 7px 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
 .footer{
-    width: 100%;
-    background-image: linear-gradient(rgb(222, 231, 240), rgb(253, 112, 128));
-    height: 100vh;
     display: flex;
     flex-direction:column;
-    justify-content: center;
-    align-items: center;
+    
+    
+    
+    
 
 }
