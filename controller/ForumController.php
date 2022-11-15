@@ -72,20 +72,6 @@
             ];
 
         }
-        // //Ajout d'une categorie
-        // public function addCategory($idcategory){
-
-        //     $categoryManager = new CategoryManager();
-        //     $categoryName = filter_input(INPUT_POST, "categoryName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        
-        //     if($categoryName) {
-                
-        //         $categoryManager->add(["categoryName"=>$categoryName, "category_id=>$idcategory"]);
-        //         header("Location: index.php?ctrl=forum&action=ListCategorys&id=$idcategory");
-        //     }
-        // }
-
-
 
         //Ajout d'un post/message
         public function addPost($idtopic){
@@ -116,6 +102,17 @@
             }
         }
 
+                // //Ajout d'une categorie
+        // public function addCategory($idcategory){
 
+        //     $categoryManager = new CategoryManager();
+        //     $categoryName = filter_input(INPUT_POST, "categoryName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        
+        //     if($categoryName) {
+                
+        //         $categoryManager->add(["categoryName"=>$categoryName, "category_id=>$idcategory"]);
+        //         header("Location: index.php?ctrl=forum&action=ListCategorys&id=$idcategory");
+        //     }
+        // }
 
     }
