@@ -34,7 +34,7 @@
       </div>
       <br>
       <div>
-         <button class="text-center alert alert-danger"><a href="">Retour</a></h3></button>
+         <button class="text-center alert alert-danger"><a href="">Réessayer</a></h3></button>
       </div>
       </form>  
    </body>

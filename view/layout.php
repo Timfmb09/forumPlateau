@@ -63,6 +63,7 @@
                 <?= $page ?>
             </main>
         </div>
+        <br>
         <footer>
             <p>&copy; 2020 - Forum CDA - <a href="/home/forumRules.html">Règlement du forum</a> - <a href="">Mentions légales</a></p>
             <!--<button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois-->
