@@ -1,12 +1,12 @@
 <?php
 // montre comment récupérer les données envoyées par le controller (ligne 3)
 $posts = $result["data"]['posts'];
-$idtopic = $result["data"]['idtopic'];
+$topic = $result["data"]['topic'];
     
 ?>
 
-<h1>Liste des posts/messages</h1>
-
+<h1>Liste des posts/messages <?= $topic->getTitle() ?></h1>
+<br>
 <table>
     <thead>
         <tr>
@@ -16,10 +16,9 @@ $idtopic = $result["data"]['idtopic'];
         </tr>
     </thead>
     <tbody>
-
+    <br>
     <?php
-foreach($posts as $post ){
-
+        foreach($posts as $post){
     ?>
 <tr>
     <td><?=$post->getMessage()?></td>
@@ -30,7 +29,10 @@ foreach($posts as $post ){
 } ?>
 </tbody>
 </table>
-<form action="index.php?ctrl=forum&action=addPost&id=<?=$idtopic ?>" method="post">
+<br>
+
+
+<form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="post">
    <input type="text" name ="message" />
    <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>
 </form>

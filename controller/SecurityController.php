@@ -45,37 +45,35 @@
 
         //Connexion
         public function login(){
-            // $userManager = new UserManager();
-            // $nickname = filter_input(INPUT_POST, "nickname", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            // $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            // $password2 = filter_input(INPUT_POST, "password2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $userManager = new UserManager();
+            $nickname = filter_input(INPUT_POST, "nickname", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $password2 = filter_input(INPUT_POST, "password2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                  
-            // // Add in BDD
-            // // $userManager->add(["nickname"=>$nickname, "email"=>$email, "password"=>$password ]);
-            // if($nickname && $password && $password2){
-            //     //Ici on verifie s'il existe déjà ou pas.
-            //     if(!$userManager->findOneByUser($nickname) && ($password == $password2)){
-            //         $data=['nickname'=>$nickname, 'password'=> $passwordhash];
-            //         $userManager->add($data);
-            //         $this->redirectTo('security', 'login');
-            //     } else {
-            //         $this->redirectTo('security', 'addUser');
-            //     }
+            // Add in BDD
+            // $userManager->add(["nickname"=>$nickname, "email"=>$email, "password"=>$password ]);
+            if($nickname && $password && $password2){
+                //Ici on verifie s'il existe déjà ou pas.
+                if(!$userManager->findOneByUser($nickname) && ($password == $password2)){
+                    $data=['nickname'=>$nickname, 'password'=> $passwordhash];
+                    $userManager->add($data);
+                    $this->redirectTo('security', 'login');
+                } else {
+                    $this->redirectTo('security', 'addUser');
+                }
           
-            //     {             
+                {             
 
-            //     $userManager->getUser($nickname) ->getPassword($password);
-            //     $password = password_verify($password, );
-
-            //     }
-               
-    
-            // }
-
-
-
-
-            
+                $userManager->getUser($nickname) ->getPassword($password);
+                
+                if (password_verify('', $hash)) {
+                    echo 'Le mot de passe est valide !';
+                } else {
+                    echo 'Le mot de passe est invalide.';
+                }
+                ?>
+            }
+          
             
             return ["view" => VIEW_DIR."security/login.php"];
         }

@@ -60,14 +60,16 @@
         // Affiche la liste des posts/message par topic/sujet  
         public function findPostsByTopic($id) {
             $postManager = new PostManager();
+            $topicManager = new TopicManager();
             $posts = $postManager->findPostsByTopic($id);
+            
 
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
                     "posts" => $posts,
-                    "idtopic" => $id
+                    "topic" => $topicManager->findOneById($id)
                 ]
             ];
 

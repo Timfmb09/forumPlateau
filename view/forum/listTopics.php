@@ -8,7 +8,7 @@ $idcategory = $result["data"]['id_category'];
 ?>
 
 <h1>Liste des topics</h1>
-
+<br>
 <table>
     <thead>
         <tr>
@@ -18,9 +18,9 @@ $idcategory = $result["data"]['id_category'];
         </tr>
     </thead>
     <tbody>
-   
     <?php
-    foreach($topics as $topic){ ?>
+    foreach($topics as $topic){ 
+    ?>
     <tr>
         <td><a href="index.php?ctrl=forum&action=findPostsByTopic&id=<?= $topic->getId() ?>"><?=$topic->getTitle()?></a></td>
         <td><?=$topic->getCreationDate()?></td>
@@ -28,9 +28,9 @@ $idcategory = $result["data"]['id_category'];
     </tr>
         <?php
     } ?>
-
 </tbody>
 </table>
+<br>
 <form action="index.php?ctrl=forum&action=addTopic&id=<?=$idcategory ?>" method="post">
    <input type="text" name ="title" />
    <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>
