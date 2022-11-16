@@ -33,11 +33,12 @@ h1{
     width: 100%;
     background-image: linear-gradient(rgb(22, 90, 158), rgb(174, 245, 59));
     height: 100vh;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: center;
     align-items: center;
     padding-left: 10%;
+    padding-top: 5%;
 }
 
 #box {

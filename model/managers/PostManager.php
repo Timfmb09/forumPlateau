@@ -26,6 +26,18 @@
         }
         //$data = ['username' => 'Squalli', 'password' => 'dfsyfshfbzeifbqefbq', 'email' => 'sql@gmail.com'];
 
+        public function findPostsByUser($id) {
+            $sql = "SELECT nickname
+                    FROM ".$this->tableName." u
+                    WHERE u.user = :id";
+
+            // var_dump($sql); die;
+
+            return $this->getMultipleResults(
+                DAO::select($sql, ['id' => $id]),
+                $this->className
+            );
+        }
 
 
 
