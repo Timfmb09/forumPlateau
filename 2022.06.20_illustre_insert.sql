@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Hôte:                         127.0.0.1
--- Version du serveur:           5.7.33 - MySQL Community Server (GPL)
+-- Hôte :                        127.0.0.1
+-- Version du serveur:           5.7.24 - MySQL Community Server (GPL)
 -- SE du serveur:                Win64
--- HeidiSQL Version:             11.2.0.6213
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,7 +10,6 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
 -- Listage de la structure de la base pour forumplateau
@@ -22,14 +21,15 @@ CREATE TABLE IF NOT EXISTS `category` (
   `id_category` int(11) NOT NULL AUTO_INCREMENT,
   `categoryName` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- Listage des données de la table forumplateau.category : ~3 rows (environ)
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`id_category`, `categoryName`) VALUES
-	(1, 'CategorynameA'),
-	(2, 'CategorynameB'),
-	(3, 'CategorynameC');
+	(1, 'Cinema'),
+	(2, 'Musique'),
+	(3, 'Sport'),
+	(4, 'Art');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
 -- Listage de la structure de la table forumplateau. post
@@ -44,16 +44,15 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `topic_id` (`topic_id`),
   CONSTRAINT `FK_post_topic` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
   CONSTRAINT `FK_post_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- Listage des données de la table forumplateau.post : ~3 rows (environ)
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
 INSERT INTO `post` (`id_post`, `message`, `datePost`, `user_id`, `topic_id`) VALUES
-	(1, 'MessageKo', '2022-11-04 00:00:00', 10, 1),
-	(2, 'MessageMo', '2023-11-04 00:00:00', 11, 2),
-	(3, 'MessageGo', '2024-11-04 00:00:00', 12, 3),
-	(9, 'MessageLo', '2022-11-10 09:47:58', 10, 1),
-	(10, 'MessageTest', '2022-11-10 09:48:20', 10, 1);
+	(1, 'Concernant le film d\'animation ', '2022-11-04 00:00:00', 10, 1),
+	(2, 'Concernant la musique classique', '2023-11-04 00:00:00', 11, 2),
+	(3, 'Concernant le sport extrême', '2024-11-04 00:00:00', 12, 3),
+	(4, 'Concernant l\'art moderne', '2022-11-16 16:08:33', 12, 4);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 
 -- Listage de la structure de la table forumplateau. topic
@@ -74,9 +73,10 @@ CREATE TABLE IF NOT EXISTS `topic` (
 -- Listage des données de la table forumplateau.topic : ~3 rows (environ)
 /*!40000 ALTER TABLE `topic` DISABLE KEYS */;
 INSERT INTO `topic` (`id_topic`, `title`, `closed`, `creationDate`, `category_id`, `user_id`) VALUES
-	(1, 'TitleD', 0, '2022-11-04 12:00:00', 1, 10),
-	(2, 'TitleE', 0, '2023-11-04 03:00:00', 2, 11),
-	(3, 'TitleG', 0, '2024-11-04 00:00:00', 3, 12);
+	(1, 'Film d\'animation', 0, '2022-11-04 12:00:00', 1, 10),
+	(2, 'Musique classique', 0, '2023-11-04 03:00:00', 2, 11),
+	(3, 'Sport extrême', 0, '2024-11-04 00:00:00', 3, 12),
+	(4, 'Art moderne', 0, '2022-11-16 16:07:49', 4, 13);
 /*!40000 ALTER TABLE `topic` ENABLE KEYS */;
 
 -- Listage de la structure de la table forumplateau. user
@@ -87,17 +87,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL DEFAULT '',
   `role` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Listage des données de la table forumplateau.user : ~3 rows (environ)
+-- Listage des données de la table forumplateau.user : ~4 rows (environ)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `nickname`, `email`, `password`, `role`) VALUES
 	(10, 'Harry', 'harry@heidimail.com', 'Xopzuv33', 'roleAdministrateur'),
 	(11, 'Jack', 'jack@heidimail.com', 'Povqzte2', 'roleModerateur'),
-	(12, 'Paul', 'paul@heidimail.com', 'aRiverme3', 'roleEditeur');
+	(12, 'Paul', 'paul@heidimail.com', 'aRiverme3', 'roleEditeur'),
+	(13, 'Julia', 'julia@heidmail.com', 'iGgbzkljza9', 'roleVisiteur');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
