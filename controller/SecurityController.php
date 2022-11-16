@@ -45,41 +45,39 @@
 
         //Connexion
         public function login(){
-            $userManager = new UserManager();
-            $nickname = filter_input(INPUT_POST, "nickname", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        //     //Lien avec le UserManager
+        //     $userManager = new UserManager();
+        //     //verification des valeurs
+        //     if(isset($_POST['connect'])){
+        //     //filtre des données
+        //     $email = filter_input(INPUT_POST, "email", INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
+        //     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                                      
-            if($nickname && $password){
-                //Ici on verifie s'il existe déjà ou pas.
-                if(!$userManager->findOneByUser($nickname)){
-                    $data=['nickname'=>$nickname, 'password'=> $password];
-                    $userManager->add($data);
-                    $this->redirectTo('security', 'login');
-                } else {
-                    $this->redirectTo('security', 'addUser');
-                }
-          
-                {           
-                $userManager->getUser($nickname) ->getPassword($password);
-                
-                if (password_verify('', $password)) {
-                    echo 'Le mot de passe est valide !';
-                } else {
-                    echo 'Le mot de passe est invalide!';
-                }
-                }
-        }
+        //     if($email && $password){
+        //         //Ici on fait le lien entre email et mot de passe
+        //         $user = $userManager->findOneByEmail($email);
+        //         if($user){                    
+        //         $passwordhash = $userManager->findOneByEmail($email)->getPassword($password);
+        //         //Verification du mot de passe
+        //         if(password_verify($password, $passwordhash)){
+        //             //Connexion User
+        //            Session::setUser($user);
+        //            Session::addFlash('sucess', 'Welcome');
+        //            $this->redirectTo('home.php');
+        //         } else Session::addFlash('error', 'Mot de passe incorrect', 'Email incorrect');
+        // }
                         
             return ["view" => VIEW_DIR."security/login.php"];
         }
-
-
-        // Inscription
-        public function register(){
-       
-
-            
-            return ["view" => VIEW_DIR."security/register.php"];
-        }
     }
-        ?>
+
+    // }
+    //     // Logout
+    //     public function logout(){
+    //         if(isset($_POST['logout'])){
+    //             session_destroy();
+    //         }
+    //         return ["view" => VIEW_DIR."security/login.php"];
+    //     }
+    // }
+    //     ?>
