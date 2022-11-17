@@ -41,12 +41,14 @@
                             <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      
                             <br>
                             <br>
-                            <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                            <form action="index.php?ctrl=security&action=logout" id="logoutPost" method="post">
+                                <input type="hidden" name="logout" value="Déconnexion"></input>
+                                <a href="#" onclick="document.getElementById('logoutPost').submit()">Déconnexion</a>
+                            </form>
                             <?php
                         }
                         else{
                             ?>
-                            <br>
                             <a href="index.php?ctrl=security&action=registerView">Inscription</a>
                             <br>
                             <br>
@@ -54,8 +56,7 @@
                             <br>
                             <br>
                             <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      
-                            <br>
-                            <br>                                               
+                            <br>                                                                        
                         <?php
                         }
                    

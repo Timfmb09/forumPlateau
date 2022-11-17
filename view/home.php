@@ -1,3 +1,4 @@
+<br>
 <h1>BIENVENUE SUR LE FORUM</h1>
 <br>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>

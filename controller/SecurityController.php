@@ -37,28 +37,48 @@
             // $userManager->add(["nickname"=>$nickname, "email"=>$email, "password"=>$password ]);
             if($nickname && $email && $password && $password2){
                 
-                //Ici on verifie s'il existe déjà ou pas.
-                if(!$userManager->findOneByUser($nickname) && !$userManager->findOneByEmail($email) && ($password == $password2)){
-                    // var_dump("ok");die;
-                    $passwordhash = password_hash($password, PASSWORD_DEFAULT);
-                    // Hashage du mot de passe
-                    $data=['nickname'=>$nickname, 'email'=>$email, 'password'=> $passwordhash];
-                    
-                    $userManager->add($data);
-                    $this->redirectTo('security', 'loginView');
-                } else {
+                //Ici on verifie si le nom utilisateur existe déjà ou pas.
+                if(!$userManager->findOneByUser($nickname)){
+
+                    if(!$userManager->findOneByEmail($email)){
+                        if($password == $password2){
+                            if(strlen($password)>=8){
+                                        // Hashage du mot de passe
+                                        $passwordhash = password_hash($password, PASSWORD_DEFAULT);
+                                        //On injecte les donnees en BBD
+                                        $data=['nickname'=>$nickname, 'email'=>$email, 'password'=> $passwordhash];    
+                                        $userManager->add($data);
+                                        //On redirige vers la page pour se logger
+                                        $this->redirectTo('security', 'loginView');
+
+                                        } else{
+                                            Session::addFlash('error', 'Le mot de passe doit comporter 8 caractères minimum');
+                                            $this->redirectTo('security', 'registerView');
+                                        }
+                        }else{ 
+                            Session::addFlash('error', 'Les mots de passe ne correspondent pas');
+                            $this->redirectTo('security', 'registerView');
+                            }
+                    }else{
+                        Session::addFlash ('error', 'Cet email a déjà été utlisé');
+                        $this->redirectTo('security', 'registerView');
+                    }
+                }else{
+                    Session::addFlash('error', 'Pseudonyme déjà été utlisé');
+                    $this->redirectTo('security', 'registerView');
+                } 
+     
+            }else{
                     $this->redirectTo('security', 'registerView');
                 }
-            }
-           
-        }
-
+    }
+        
         //Connexion
         public function login(){
             //Lien avec le UserManager
             $userManager = new UserManager();
             //verification des valeurs
-            if(isset($_POST['login'])){
+            if(isset($_POST['connect'])){
                 
             //filtre des données
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
@@ -88,12 +108,9 @@
             // Logout
             public function logout(){
                 if(isset($_POST['logout'])){
-                    session_destroy();
+                    unset($_SESSION['user']);
                 }
                 
-                
-
-
                 return ["view" => VIEW_DIR."security/login.php"];
         
             }

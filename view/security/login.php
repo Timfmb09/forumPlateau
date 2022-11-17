@@ -21,7 +21,7 @@
          <br>
          <div class="form-group">
             <div class="col-md-4 col-md-offset-4">
-               <button type="submit" name='login' class="btn btn-primary">Je me connecte</button>
+               <button type="submit" name='connect' class="btn btn-primary">Je me connecte</button>
             </div>
          </div>
          <br>
