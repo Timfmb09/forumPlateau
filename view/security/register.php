@@ -6,7 +6,7 @@
    <br>
    <body>   
       <div class="container">
-         <form method="post" class="pure-form pure-form-aligned" action='index.php?ctrl=security&action=addUser'>
+         <form method="post" class="pure-form pure-form-aligned" action='index.php?ctrl=security&action=register'>
       </div>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon1">Nickname</span>

@@ -7,9 +7,7 @@ $topic = $result["data"]['topic'];
 
 <h1>Liste des posts/messages <?= $topic->getTitle() ?></h1>
 <br>
-<?php
-        if($topic->getClosed() == 1) {
-    ?>
+
 <table>
     <thead>
         <tr>
@@ -23,22 +21,26 @@ $topic = $result["data"]['topic'];
     <?php
         foreach($posts as $post){
     ?>
-<tr>
-    <td><?=$post->getMessage()?></td>
-    <td><?=$post->getDatePost()?></td>
-    <td><?=$post->getUser()?></td>
+        <tr>
+            <td><?=$post->getMessage()?></td>
+            <td><?=$post->getDatePost()?></td>
+            <td><?=$post->getUser()?></td>
 
-</tr>
-    <?php
-} ?>
-</tbody>
+        </tr>
+    </tbody>
 </table>
-<br>
-<?php
-if($topic->getClosed()==0){
-?>
-<form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="post">
-   <input type="text" name ="message" />
-   <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>
-</form>
+    <?php } ?>
+   <?php  
+   if($topic->getClosed() == 1) {
+        echo "<h3>Topic fermé</h3>";
+   } elseif($topic->getClosed() == 0){
+    ?>
+        <form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="post">
+        <input type="text" name ="message" />
+        <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>
+        </form>
+   <?php
+   }
+   ?>
+
 

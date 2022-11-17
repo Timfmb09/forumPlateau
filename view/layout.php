@@ -20,31 +20,37 @@
                 <nav>
                     <div id="nav-left">
                         <a href="index.php?ctrl=home&action=home">Accueil</a>
+                        <br>
                         <?php
                         if(App\Session::isAdmin()){
                             ?>
+                             <br>
                             <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
-                          
-                            <?php
-                        }
-                        ?>
+                            <br>
+                            <?php } ?>
+                            
                     </div>
                     <div id="nav-right">
-                    <?php
-                        
-                        if(App\Session::getUser()){
-                            ?>
+                    <br>
+                            <?php
+                                if(App\Session::getUser()){
+                            ?>                            
                             <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
-                            <a href="/security/logout.html">Déconnexion</a>
+                            <br>
+                            <br>
+                            <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      
+                            <br>
+                            <br>
+                            <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
                             <?php
                         }
                         else{
                             ?>
                             <br>
-                            <a href="index.php?ctrl=security&action=register">Inscription</a>
+                            <a href="index.php?ctrl=security&action=registerView">Inscription</a>
                             <br>
                             <br>
-                            <a href="index.php?ctrl=security&action=login">Connexion</a>
+                            <a href="index.php?ctrl=security&action=loginView">Connexion</a>
                             <br>
                             <br>
                             <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      

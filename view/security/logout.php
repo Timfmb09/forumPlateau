@@ -2,14 +2,14 @@
    <br>
    <head>
       <meta name="viewport" content="width=device-width" />
-      <h1 class="text-center">Connexion</h1>
+      <h1 class="text-center">Déonnexion</h1>
    </head>
    <br>
    <body>
-      <form class="form-horizontal" method="post" action="index.php?ctrl=security&action=login">
+      <form class="form-horizontal" method="post" action="index.php?ctrl=home&action=home">
          <div class="form-group">
             <div class="col-md-4 col-md-offset-4">
-               <input id="email" name="email" type="text" placeholder="Votre email" class="form-control input-md" required>
+               <input id="nickname" name="nickname" type="text" placeholder="Votre identifiant" class="form-control input-md" required>
             </div>
          </div>
          <br>
@@ -21,13 +21,9 @@
          <br>
          <div class="form-group">
             <div class="col-md-4 col-md-offset-4">
-               <button type="submit" name='login' class="btn btn-primary">Je me connecte</button>
+               <button type="submit" name='logout' class="btn btn-primary">Déconnexion</button>
             </div>
-         </div>
-         <br>
-         <div>
-            <button class="text-center alert alert-danger"><a href="">Réessayer</a></h3></button>
-         </div>
+         </div>                
       </form>
    </body>
 </html>
