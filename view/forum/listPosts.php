@@ -4,9 +4,9 @@ $posts = $result["data"]['posts'];
 $topic = $result["data"]['topic'];
     
 ?>
-
-<h1>Liste des posts/messages <?= $topic->getTitle() ?></h1>
 <br>
+<h1>Liste des posts/messages <?= $topic->getTitle() ?></h1>
+
 
 <table>
     <thead>
@@ -34,6 +34,7 @@ $topic = $result["data"]['topic'];
         echo "<h3>Topic fermé</h3>";
    } elseif($topic->getClosed() == 0){
     ?>
+    <br>
         <form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="post">
         <input type="text" name ="message" />
         <td colspan="2"><input type="submit" name="submit" class="btn" value="Ajouter"></td>

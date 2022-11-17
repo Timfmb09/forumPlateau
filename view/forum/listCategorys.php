@@ -3,7 +3,7 @@
 $categorys = $result["data"]['categorys'];
     
 ?>
-
+<br>
 <h1>Liste des categories</h1>
 <br>
 <?php
