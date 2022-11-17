@@ -25,11 +25,10 @@ $topic = $result["data"]['topic'];
             <td><?=$post->getMessage()?></td>
             <td><?=$post->getDatePost()?></td>
             <td><?=$post->getUser()?></td>
-
         </tr>
+    <?php } ?>
     </tbody>
 </table>
-    <?php } ?>
    <?php  
    if($topic->getClosed() == 1) {
         echo "<h3>Topic fermé</h3>";
