@@ -7,7 +7,7 @@ $idcategory = $result["data"]['id_category'];
     
 ?>
 <br>
-<h1>Liste des topics</h1>
+<h1>Liste des topics/Sujets</h1>
 <br>
 <table>
     <thead>
@@ -15,6 +15,7 @@ $idcategory = $result["data"]['id_category'];
             <th>Title</th>          
             <th>Date</th>
             <th>User</th>
+            <th>Verrouiller/déverouiller</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@ $idcategory = $result["data"]['id_category'];
         <td><a href="index.php?ctrl=forum&action=findPostsByTopic&id=<?= $topic->getId() ?>"><?=$topic->getTitle()?></a></td>
         <td><?=$topic->getCreationDate()?></td>      
         <td><?=$topic->getUser() ?></td>
+        <td><?=$topic->getClosed() ?></td>
     </tr>
         <?php
     } ?>

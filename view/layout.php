@@ -25,7 +25,7 @@
                         if(App\Session::isAdmin()){
                             ?>
                              <br>
-                            <a href="index.php?ctrl=forum&action=listUsers">Voir la liste des gens</a>
+                            <a href="index.php?ctrl=forum&action=listUsers">Espace membre</a>
                             <br>
                             <?php } ?>
                             
