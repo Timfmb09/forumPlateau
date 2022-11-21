@@ -71,7 +71,7 @@
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
                     "posts" => $posts,
-                    "topic" => $topicManager->findOneByUser($id)
+                    "topic" => $topicManager->findOneById($id)
                 ]
             ];
 
