@@ -44,6 +44,7 @@
         // Affiche la liste des topics/sujets par catégorie  
         public function findTopicsByCategory($id) {
             $topicManager = new TopicManager();
+            // $categoryManager = new CategoryManager();
             $topics = $topicManager->findTopicsByCategory($id);
 
             return [
@@ -52,24 +53,25 @@
                 "data" => [
                     "topics" => $topics,
                     "id_category" =>$id
+
+                    // "category" => $categoryManager->findOneById($id)
                 ]
             ];
         
         }
 
-        // Affiche la liste des posts/message par topic/sujet  
+        // Affiche la liste des posts/messages par topic/sujet  
         public function findPostsByTopic($id) {
             $postManager = new PostManager();
             $topicManager = new TopicManager();
             $posts = $postManager->findPostsByTopic($id);
             
-
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
                     "posts" => $posts,
-                    "topic" => $topicManager->findOneById($id)
+                    "topic" => $topicManager->findOneByUser($id)
                 ]
             ];
 
@@ -104,7 +106,51 @@
             }
         }
 
-                // //Ajout d'une categorie
+        public function listUsers(){
+
+            $userManager = new UserManager();
+
+            return [
+                "view" => VIEW_DIR."forum/listUsers.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "users" => $userManager->findAll(["nickname" , "ASC"])
+                ]
+                ];
+
+        }
+        
+        // Affiche la liste des posts/messages par user  
+        public function findPostsByUser($id) {
+            $postManager = new PostManager();
+            $userManager = new UserManager();
+
+            return [
+                "view" => VIEW_DIR."forum/detailsUsers.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "posts" => $postManager->findPostsByUser($id),
+                    "user" => $userManager->findOneById($id)
+                ]
+            ];
+
+        }
+
+        public function lockTopic(){
+
+            $topicManager = new TopicManager();
+
+            return [
+                "view" => VIEW_DIR."forum/listTopics.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "users" => $topicManager->findAll(["title" , "ASC"])
+                ]
+            ];
+        }
+
+
+                        // //Ajout d'une categorie
         // public function addCategory($idcategory){
 
         //     $categoryManager = new CategoryManager();
@@ -117,18 +163,5 @@
         //     }
         // }
 
-        // Affiche la liste des catégories      
-        public function listUsers(){
-
-            $userManager = new UserManager();
-
-            return [
-                "view" => VIEW_DIR."forum/listUsers.php",
-                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
-                "data" => [
-                    "users" => $userManager->findAll(["nickname" , "ASC"])
-                ]
-            ];
-        }
 
     }
