@@ -25,7 +25,7 @@
                         if(App\Session::isAdmin()){
                             ?>
                              <br>
-                            <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                            <a href="index.php?ctrl=home&action=listUsers">Voir la liste des gens</a>
                             <br>
                             <?php } ?>
                             
@@ -38,7 +38,7 @@
                             <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
                             <br>
                             <br>
-                            <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      
+                            <a href="index.php?ctrl=forum&action=listCategories">Liste des categories</a>      
                             <br>
                             <br>
                             <form action="index.php?ctrl=security&action=logout" id="logoutPost" method="post">
@@ -55,7 +55,7 @@
                             <a href="index.php?ctrl=security&action=loginView">Connexion</a>
                             <br>
                             <br>
-                            <a href="index.php?ctrl=forum&action=listCategorys">Liste des categories</a>      
+                            <a href="index.php?ctrl=forum&action=listCategories">Liste des categories</a>      
                             <br>                                                                        
                         <?php
                         }

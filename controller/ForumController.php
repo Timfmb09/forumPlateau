@@ -27,15 +27,15 @@
         }   
             
         // Affiche la liste des catégories      
-        public function listCategorys(){
+        public function listCategories(){
 
             $categoryManager = new CategoryManager();
 
             return [
-                "view" => VIEW_DIR."forum/listCategorys.php",
+                "view" => VIEW_DIR."forum/listCategories.php",
                 // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
                 "data" => [
-                    "categorys" => $categoryManager->findAll(["categoryName" , "ASC"])
+                    "categories" => $categoryManager->findAll(["categoryName" , "ASC"])
                 ]
             ];
         }
@@ -113,7 +113,7 @@
         //     if($categoryName) {
                 
         //         $categoryManager->add(["categoryName"=>$categoryName, "category_id=>$idcategory"]);
-        //         header("Location: index.php?ctrl=forum&action=ListCategorys&id=$idcategory");
+        //         header("Location: index.php?ctrl=forum&action=ListCategories&id=$idcategory");
         //     }
         // }
 
