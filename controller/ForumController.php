@@ -117,4 +117,18 @@
         //     }
         // }
 
+        // Affiche la liste des catégories      
+        public function listUsers(){
+
+            $userManager = new UserManager();
+
+            return [
+                "view" => VIEW_DIR."forum/listUsers.php",
+                // la méthode "findAll" est une méthode générique qui provient de l'AbstractController (dont hérite chaque controller de l'application)
+                "data" => [
+                    "users" => $userManager->findAll(["nickname" , "ASC"])
+                ]
+            ];
+        }
+
     }

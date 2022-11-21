@@ -3,7 +3,7 @@
 $topics = $result["data"]['topics'];
 $idcategory = $result["data"]['id_category'];
 
-// var_dump($topics);
+// var_dump($topics);die;
     
 ?>
 <br>

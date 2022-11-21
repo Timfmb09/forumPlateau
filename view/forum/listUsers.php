@@ -12,7 +12,7 @@ foreach($users as $user ){
 
     ?>
     <p><?php echo $user->getId()?>
-        <a href="index.php?ctrl=forum&action=findOneByUser&id=<?=$user->getId() ?>"> <?= $user->getUser()?> </a>
+        <a href="index.php?ctrl=forum&action=findOneByUser&id=<?=$user->getId() ?>"> <?= $user->getNickname()?> </a>
     </p>
     
     <?php
